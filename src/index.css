@@ -13,3 +13,19 @@ body {
 button:disabled {
   opacity: 0.5;
 }
+
+.data_table td {
+  padding: 4px 8px 4px 0
+}
+
+.data_table thead {
+  font-weight: bold;
+}
+
+input {
+  width: 350px;
+}
+
+#root {
+  padding: 16px;
+}

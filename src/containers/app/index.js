@@ -1,20 +1,40 @@
-import React from 'react';
-import { Route, Link } from 'react-router-dom'
-import Home from '../home'
-import About from '../about'
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom'
+import { withRouter } from 'react-router'
+import { isAddress } from 'ethereum-address';
+import Address from '../address'
+import Block from '../block'
 
-const App = () => (
-  <div>
-    <header>
-      <Link to="/">Home</Link>
-      <Link to="/about-us">About</Link>
-    </header>
+class App extends Component {
+  constructor() {
+    super();
+    this.addressLookup = this.addressLookup.bind(this);
+  }
+  addressLookup(e) {
+    const input = this.refs.input.value;
+    const isBlock = !input.startsWith('0x');
+    const isValidAddress = isAddress(input);
 
-    <main>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/about-us" component={About} />
-    </main>
-  </div>
-)
+    if (isBlock) {
+      this.props.history.push(`/block/${input}`);
+      this.refs.input.value = '';
+    } else if (isValidAddress) {
+      this.props.history.push(`/address/${input}`);
+      this.refs.input.value = '';
+    }
+  }
+  render() {
+    return (<div>
+      <div>
+        <input ref="input" placeholder="address / block" /><button onClick={this.addressLookup}>Submit</button>
+      </div>
+      <main>
+        <Route path="/address/:address" component={Address} />
+        <Route path="/block/:blockno" component={Block} />
+      </main>
+    </div>)
 
-export default App
+  }
+}
+
+export default withRouter(App)
