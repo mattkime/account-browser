@@ -1,22 +1,20 @@
-<p align="center"><a href="https://medium.com/@notrab/getting-started-with-create-react-app-redux-react-router-redux-thunk-d6a19259f71f"><img src="https://i.imgur.com/PATsTx2.png" title="View tutorial" alt="React, React Router, Redux and Redux Thunk" width="900"></a></p>
+#account-browser
 
-[![Dependency Status](https://dependencyci.com/github/notrab/create-react-app-redux/badge)](https://dependencyci.com/github/notrab/create-react-app-redux)
+- Developed on Node v9.3.0 but should work on any reasonably recent version
+- To run - `npm install && npm start`
+- try `0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae` as a starting address
 
-* Tutorial: [Getting started with create-react-app, Redux, React Router & Redux Thunk](https://medium.com/@notrab/getting-started-with-create-react-app-redux-react-router-redux-thunk-d6a19259f71f)
-* Example: [View on Heroku](https://cra-redux-router-thunk.herokuapp.com/) 🙌
+I focused on wiring up nagivation for addresses and blocks, using Redux to 
+store application state. `/src/app/index.js` is a good starting spot for 
+reading code.
 
-## Installation
+Known issues - Network errors can lead to the display of stale data.
 
-```bash
-git clone https://github.com/notrab/create-react-app-redux.git
-cd create-react-app-redux
-yarn
-```
+Potential improvements:
+- Tests
+- Typechecking via Flow or similar
+- Central etherscan api interface
+- Better smart container / simple component division
+- Responsive layout
+- User error messaging
 
-## Get started
-
-```bash
-yarn start
-```
-
-This boilerplate is built using [create-react-app](https://github.com/facebookincubator/create-react-app) so you will want to read the User Guide for more goodies.
