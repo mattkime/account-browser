@@ -43,16 +43,14 @@ class Address extends Component {
             sort: 'desc',
             apikey: 'VEZ1FMIZEQ7R9VJ9KWW4D43J76P26DXP9'
         });
-        //address=0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae
+
         fetch(`http://api.etherscan.io/api?${params.toString()}`)
             .then(results => results.json())
             .then(content => {
                 this.props.dispatchTransactions(content.result);
             })
-
     }
     render() {
-        // console.log('**', updateTransactions
         const { transactions } = this.props
         const transactionRows = transactions.map(item =>
             <Transaction {...item} key={item.hash} hash={item.hash} />)
